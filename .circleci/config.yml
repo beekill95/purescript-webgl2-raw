@@ -38,15 +38,15 @@ jobs:
       - restore_cache:
           name: Restore yarn cache
           keys:
-            - yarn-cache-v1
+            - yarn-cache-v2
 
       - run:
           name: Install purescript/spago/esbuild
-          command: yarn global add purescript spago esbuild
+          command: yarn global add purescript spago esbuild http-server
 
       - save_cache:
           name: Save yarn cache
-          key: yarn-cache-v1
+          key: yarn-cache-v2
           paths:
             - ~/.cache/yarn
 
@@ -135,14 +135,13 @@ jobs:
           command: |
             cd "$CS_DIR" && bash copy-tests.sh
 
-
       #
       # Start apache
       #
       - run:
-          name: Start apache
+          name: Start http-server
           command: |
-            sudo service apache2 start
+            http-server /var/www/html &
             curl http://localhost/WebGL/conformance-suites/ps-tests/1.0.3/webgl-conformance-tests.html
 
       #
@@ -175,4 +174,4 @@ jobs:
           name: Run tests
           command: |
             cp .circleci/test-config.json ./
-            pulp test
+            spago test
