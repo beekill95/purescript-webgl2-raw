@@ -141,7 +141,7 @@ jobs:
       - run:
           name: Start http-server
           command: |
-            http-server /var/www/html &
+            http-server /var/www/html -p 80 &
             curl http://localhost/WebGL/conformance-suites/ps-tests/1.0.3/webgl-conformance-tests.html
 
       #
