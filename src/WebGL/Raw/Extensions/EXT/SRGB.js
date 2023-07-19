@@ -1,5 +1,5 @@
 "use strict";
 
-exports.js_getExtensionEXT_sRGB = function (gl) {
-  return gl.getExtension("EXT_sRGB");
-};
+export function js_getExtensionEXT_sRGB(gl) {
+    return gl.getExtension("EXT_sRGB");
+}

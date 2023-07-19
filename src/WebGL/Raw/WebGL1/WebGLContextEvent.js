@@ -1,5 +1,5 @@
 "use strict";
 
-exports.js_getStatusMessage = function (webglcontextevent) {
-  return webglcontextevent.statusMessage;
-};
+export function js_getStatusMessage(webglcontextevent) {
+    return webglcontextevent.statusMessage;
+}

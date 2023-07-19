@@ -1,5 +1,5 @@
 "use strict";
 
-exports.js_getExtensionWEBGL_compressed_texture_s3tc = function (gl) {
-  return gl.getExtension("WEBGL_compressed_texture_s3tc");
-};
+export function js_getExtensionWEBGL_compressed_texture_s3tc(gl) {
+    return gl.getExtension("WEBGL_compressed_texture_s3tc");
+}

@@ -1,14 +1,14 @@
 "use strict";
 
-exports.js_getSize = function (webglactiveinfo) {
-  var int0 = (webglactiveinfo.size | 0);
-  return int0;
-};
+export function js_getSize(webglactiveinfo) {
+    var int0 = (webglactiveinfo.size | 0);
+    return int0;
+}
 
-exports.js_getType = function (webglactiveinfo) {
-  return webglactiveinfo.type;
-};
+export function js_getType(webglactiveinfo) {
+    return webglactiveinfo.type;
+}
 
-exports.js_getName = function (webglactiveinfo) {
-  return webglactiveinfo.name;
-};
+export function js_getName(webglactiveinfo) {
+    return webglactiveinfo.name;
+}

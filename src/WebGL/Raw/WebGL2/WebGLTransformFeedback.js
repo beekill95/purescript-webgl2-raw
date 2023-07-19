@@ -1,45 +1,45 @@
 "use strict";
 
-exports.js_createTransformFeedback = function (gl) {
-  return gl.createTransformFeedback();
-};
+export function js_createTransformFeedback(gl) {
+    return gl.createTransformFeedback();
+}
 
-exports.js_deleteTransformFeedback = function (gl, tf) {
-  gl.deleteTransformFeedback(tf);
-};
+export function js_deleteTransformFeedback(gl, tf) {
+    gl.deleteTransformFeedback(tf);
+}
 
-exports.js_isTransformFeedback = function (gl, tf) {
-  return gl.isTransformFeedback(tf);
-};
+export function js_isTransformFeedback(gl, tf) {
+    return gl.isTransformFeedback(tf);
+}
 
-exports.js_bindTransformFeedback = function (gl, target, tf) {
-  gl.bindTransformFeedback(target, tf);
-};
+export function js_bindTransformFeedback(gl, target, tf) {
+    gl.bindTransformFeedback(target, tf);
+}
 
-exports.js_beginTransformFeedback = function (gl, primitiveMode) {
-  gl.beginTransformFeedback(primitiveMode);
-};
+export function js_beginTransformFeedback(gl, primitiveMode) {
+    gl.beginTransformFeedback(primitiveMode);
+}
 
-exports.js_endTransformFeedback = function (gl) {
-  gl.endTransformFeedback();
-};
+export function js_endTransformFeedback(gl) {
+    gl.endTransformFeedback();
+}
 
-exports.js_transformFeedbackVaryings = function ( gl
-                                                , program
-                                                , varyings
-                                                , bufferMode
-                                                ) {
-  gl.transformFeedbackVaryings(program, varyings, bufferMode);
-};
+export function js_transformFeedbackVaryings(gl
+    , program
+    , varyings
+    , bufferMode
+) {
+    gl.transformFeedbackVaryings(program, varyings, bufferMode);
+}
 
-exports.js_getTransformFeedbackVarying = function (gl, program, index) {
-  return gl.getTransformFeedbackVarying(program, index);
-};
+export function js_getTransformFeedbackVarying(gl, program, index) {
+    return gl.getTransformFeedbackVarying(program, index);
+}
 
-exports.js_pauseTransformFeedback = function (gl) {
-  gl.pauseTransformFeedback();
-};
+export function js_pauseTransformFeedback(gl) {
+    gl.pauseTransformFeedback();
+}
 
-exports.js_resumeTransformFeedback = function (gl) {
-  gl.resumeTransformFeedback();
-};
+export function js_resumeTransformFeedback(gl) {
+    gl.resumeTransformFeedback();
+}
