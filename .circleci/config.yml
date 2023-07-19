@@ -1,14 +1,17 @@
 version: 2
+orbs:
+  browser-tools: circleci/browser-tools@1.1.0
 jobs:
   build:
     docker:
       # We don't actually need php for this, we just something with a web
       # server AND node
-      - image: circleci/php:7.2-apache-node-browsers
+      - image: cimg/node:18.17-browsers
         environment:
           CS_DIR: /var/www/html/WebGL/conformance-suites
 
     steps:
+      - browser-tools/install-browser-tools
       - checkout # check out the code in the project directory
 
       - run:
