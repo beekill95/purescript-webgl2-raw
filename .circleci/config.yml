@@ -94,6 +94,7 @@ jobs:
       - run:
           name: Set group permissions on /var/www/html
           command: |
+            sudo mkdir -p /var/www/html
             sudo chgrp circleci /var/www/html
             sudo chmod g+rw /var/www/html
 
