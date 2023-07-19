@@ -1,5 +1,7 @@
 "use strict";
 
+import puppeteerCore from 'puppeteer-core';
+
 var to_js_opts = function(opts) {
     var js_opts = {};
 
@@ -15,9 +17,10 @@ var to_js_opts = function(opts) {
 export function js_puppeteer(full) {
     return function() {
         if (!full) {
-            return require('puppeteer-core');
+            return puppeteerCore;
         }
         else {
+            // FIXME: what should be an equivalent import of this?
             return require('puppeteer');
         }
     };
