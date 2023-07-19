@@ -29,8 +29,8 @@ jobs:
             - yarn-cache-v1
 
       - run:
-          name: Install bower/purescript/pulp
-          command: yarn global add bower purescript pulp
+          name: Install purescript/spago/esbuild
+          command: yarn global add purescript spago esbuild
 
       - save_cache:
           name: Save yarn cache
@@ -38,26 +38,24 @@ jobs:
           paths:
             - ~/.cache/yarn
 
-
       #
       # Install Dependencies
       #
       - restore_cache:
-          name: Restore bower cache
+          name: Restore spago cache
           keys:
-            - bower-cache-v1-{{ checksum "bower.json" }}
-            - bower-cache-v1-
+            - spago-cache-v1-{{ checksum "spago.dhall" }}
+            - spago-cache-v1-
 
       - run:
           name: Install purescript dependencies
-          command: bower install
+          command: spago install
 
       - save_cache:
           name: Save bower cache
-          key: bower-cache-v1-{{ checksum "bower.json" }}
+          key: spago-cache-v1-{{ checksum "spago.dhall" }}
           paths:
-            - bower_components
-            - ~/.cache/bower
+            - .spago
 
       #
       # Build Test Files
@@ -112,7 +110,7 @@ jobs:
       - run:
           name: Copy test files
           command: |
-            cp .circleci/conformance-tests.patch .circleci/copy-tests.sh  .circleci/ps-test-info.js .circleci/ps-test-pre-init.js .circleci/ps-test-setup.js output/ps-all.js "$CS_DIR"
+            cp .circleci/conformance-tests.patch .circleci/copy-tests.sh  .circleci/ps-test-info.js .circleci/ps-test-pre-init.js .circleci/ps-test-setup.js output/gl.js output/gl2.js "$CS_DIR"
 
       - run:
           name: Patch webgl code
