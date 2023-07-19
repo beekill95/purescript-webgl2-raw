@@ -15,10 +15,12 @@ jobs:
           name: Configure PATH
           command: echo 'export PATH=~/.yarn/bin:$PATH' >> $BASH_ENV
 
-      - run:
-          name: Install yarn
-          command: sudo npm install -g yarn
-
+      #
+      # Seem like we already have yarn installed.
+      #
+      # - run:
+      #     name: Install yarn
+      #     command: sudo npm install -g yarn
 
       #
       # Install bower & purescript
