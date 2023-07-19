@@ -141,7 +141,9 @@ jobs:
       - run:
           name: Start http-server
           command: |
-            http-server /var/www/html -p 80 &
+            sudo cp .circleci/httpserver.service /etc/systemd/system/
+            sudo systemctl daemon-reload
+            sudo systemctl start httpserver
             curl http://localhost/WebGL/conformance-suites/ps-tests/1.0.3/webgl-conformance-tests.html
 
       #
