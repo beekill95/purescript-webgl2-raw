@@ -98,9 +98,9 @@ jobs:
             sudo chgrp circleci /var/www/html
             sudo chmod g+rw /var/www/html
 
-      - restore_cache:
-          name: Restore webgl cache
-          key: webgl-cache-v1
+      # - restore_cache:
+      #     name: Restore webgl cache
+      #     key: webgl-cache-v1
 
       - run:
           name: Clone webgl repository
@@ -111,11 +111,11 @@ jobs:
               cd /var/www/html/WebGL && git pull origin master
             fi
 
-      - save_cache:
-          name: Save webgl cache
-          key: webgl-cache-v1
-          paths:
-            - /var/www/html/WebGL
+      # - save_cache:
+      #     name: Save webgl cache
+      #     key: webgl-cache-v1
+      #     paths:
+      #       - /var/www/html/WebGL
 
       #
       # Copy & patch tests
