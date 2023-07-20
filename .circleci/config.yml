@@ -140,7 +140,7 @@ jobs:
       #
       - run:
           name: Start http-server
-          workingDirectory: /var/www/html/
+          working_directory: /var/www/html/
           background: true
           command: |
             http-server -p 80
@@ -148,6 +148,7 @@ jobs:
       - run:
           name: Check server working
           command: |
+            set +e
             curl --retry-connrefused --retry-delay 2 --retry 5 http://localhost/WebGL/conformance-suites/ps-tests/1.0.3/webgl-conformance-tests.html
 
       #
