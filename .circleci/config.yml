@@ -140,11 +140,15 @@ jobs:
       #
       - run:
           name: Start http-server
+          workingDirectory: /var/www/html/
+          background: true
           command: |
-            sudo cp .circleci/httpserver.service /etc/systemd/system/
-            sudo systemctl daemon-reload
-            sudo systemctl start httpserver
-            curl http://localhost/WebGL/conformance-suites/ps-tests/1.0.3/webgl-conformance-tests.html
+            http-server -p 80
+
+      - run:
+          name: Check server working
+          command: |
+            curl --retry-connrefused --retry-delay 2 --retry 5 http://localhost/WebGL/conformance-suites/ps-tests/1.0.3/webgl-conformance-tests.html
 
       #
       # Install puppeteer-core
