@@ -147,8 +147,8 @@ jobs:
 
       - run:
           name: Check server working
+          shell: /bin/sh
           command: |
-            set +e
             curl --retry-connrefused --retry-delay 2 --retry 5 http://localhost/WebGL/conformance-suites/ps-tests/1.0.3/webgl-conformance-tests.html
 
       #
