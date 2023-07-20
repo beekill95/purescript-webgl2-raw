@@ -19,6 +19,11 @@ jobs:
             chromedriver --version
           name: Check install
 
+      # Install rsync, which we'll use for copy-tests.sh
+      - run:
+          name: Install rsync
+          command: sudo apt install rsync
+
       - checkout # check out the code in the project directory
 
       - run:
